@@ -18,7 +18,7 @@ public class ChunkConverter {
         initMaps();
     }
 
-    public void initMaps(){
+    private void initMaps(){
         orderList = new HashMap<>();
         orderList.put(100L, "");
         orderList.put(1000L, "thousand");
