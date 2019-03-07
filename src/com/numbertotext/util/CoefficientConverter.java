@@ -10,7 +10,7 @@ public class CoefficientConverter {
 
     private Map<Integer, String> digitList;
     private Map<String, Integer> wordList;
-    CoefficientConverter() {
+    public CoefficientConverter() {
         initMaps();
     }
 
@@ -82,6 +82,8 @@ public class CoefficientConverter {
 
     }
 
+
+
     Integer CoefficientTextToNumber(String text){
         try {
             List<String> digitsText = asList(text.split(" "));
@@ -125,6 +127,21 @@ public class CoefficientConverter {
 
     private String HundredsNumberToText(Coefficient coefficient){
         return digitList.get(coefficient.getHundreds()) + " " + digitList.get(100);
+    }
+    public Map<Integer, String> getDigitList() {
+        return digitList;
+    }
+
+    public void setDigitList(Map<Integer, String> digitList) {
+        this.digitList = digitList;
+    }
+
+    public Map<String, Integer> getWordList() {
+        return wordList;
+    }
+
+    public void setWordList(Map<String, Integer> wordList) {
+        this.wordList = wordList;
     }
 
     private Integer getKey(String value) {

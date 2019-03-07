@@ -1,41 +1,50 @@
 package com.numbertotext.util;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CurrencyConverter {
 
-    public String convertCharToText(String symbol){
-        try{
 
-            if("$".equals(symbol)) return "dollars";
-            else if("£".equals(symbol)) return "pounds";
-            else if("€".equals(symbol)) return "euros";
-            else throw(new Exception("Unknown Symbol!"));
-
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-            return symbol;
+    private Map<String, String> currencyList;
+    private Map<String, String> symbolList;
+    public CurrencyConverter() {
+        initMaps();
     }
 
-    public String convertTextToChar(String text){
-        try{
+    private void initMaps() {
+        currencyList = new HashMap<>();
+        currencyList.put("dollars", "$");
+        currencyList.put("pounds", "£");
+        currencyList.put("euros", "€");
 
-            switch (text.toLowerCase()) {
-                case "dollars":
-                case "dollar":
-                    return "$";
-                case "pounds":
-                case "pound":
-                    return "£";
-                case "euros":
-                case "euro":
-                    return "€";
-                default:
-                    throw (new Exception("Unknown Currency!"));
-            }
+        symbolList = new HashMap<>();
+        symbolList.put("$", "dollars");
+        symbolList.put("£", "pounds");
+        symbolList.put("€", "euros");
+    }
 
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return text;
+    public String convertCharToText(String symbol){
+        return symbolList.get(symbol);
+    }
+
+    public String convertTextToChar(String currency){
+        return currencyList.get(currency);
+    }
+
+    public Map<String, String> getCurrencyList() {
+        return currencyList;
+    }
+
+    public void setCurrencyList(Map<String, String> currencyList) {
+        this.currencyList = currencyList;
+    }
+
+    public Map<String, String> getSymbolList() {
+        return symbolList;
+    }
+
+    public void setSymbolList(Map<String, String> symbolList) {
+        this.symbolList = symbolList;
     }
 }
