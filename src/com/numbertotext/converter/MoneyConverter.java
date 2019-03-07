@@ -3,6 +3,7 @@ package com.numbertotext.converter;
 import com.numbertotext.model.Chunk;
 import com.numbertotext.model.Money;
 import com.numbertotext.util.ChunkConverter;
+import com.numbertotext.util.CurrencyConverter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +12,14 @@ import java.util.Objects;
 public class MoneyConverter implements Converter {
 
     private final ChunkConverter chunkConverter = new ChunkConverter();
+    private final CurrencyConverter currencyConverter = new CurrencyConverter();
 
     @Override
     public Money NumberToTextConverter(Money money) {
 
         Long amountNumber = money.getAmountNumber();
-        String currency = money.getCurrency();
         String amountText = CreateTextFromNumber(amountNumber);
+        String currency = currencyConverter.convertCharToText(money.getCurrency());
 
         return new Money(currency, amountText, amountNumber);
     }
@@ -26,7 +28,7 @@ public class MoneyConverter implements Converter {
     public Money TextToNumberConverter(Money money) {
         String amountText = money.getAmountText();
         Long amountNumber = ChunkListToNumber(StringToChunkList(money.getAmountText()));
-        String currency = money.getCurrency();
+        String currency = currencyConverter.convertTextToChar(money.getCurrency());
 
         return new Money(currency, amountText, amountNumber);
     }

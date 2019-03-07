@@ -2,7 +2,7 @@ package com.numbertotext.util;
 
 public class CurrencyConverter {
 
-    String convertCharToText(String symbol){
+    public String convertCharToText(String symbol){
         try{
 
             if("$".equals(symbol)) return "dollars";
@@ -16,7 +16,7 @@ public class CurrencyConverter {
             return symbol;
     }
 
-    String convertTextToChar(String text){
+    public String convertTextToChar(String text){
         try{
 
             switch (text.toLowerCase()) {
