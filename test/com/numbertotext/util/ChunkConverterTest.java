@@ -16,9 +16,9 @@ public class ChunkConverterTest {
     }
     @Test
     public void chunkTextToNumber() {
-        assertEquals(Long.valueOf(121000000000L), java.util.Optional.ofNullable(testClass.ChunkTextToNumber("one hundred twenty one billion")).get());
-        assertEquals(Long.valueOf(1000), java.util.Optional.ofNullable(testClass.ChunkTextToNumber("one thousand")).get());
-        assertEquals(Long.valueOf(21), java.util.Optional.ofNullable(testClass.ChunkTextToNumber("twenty one")).get());
+        assertEquals(Long.valueOf(121000000000L), java.util.Optional.ofNullable(testClass.ChunkTextToNumber("one hundred twenty one billion")).orElse(null));
+        assertEquals(Long.valueOf(1000), java.util.Optional.ofNullable(testClass.ChunkTextToNumber("one thousand")).orElse(null));
+        assertEquals(Long.valueOf(21), java.util.Optional.ofNullable(testClass.ChunkTextToNumber("twenty one")).orElse(null));
     }
 
     @Test

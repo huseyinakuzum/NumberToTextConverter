@@ -17,15 +17,15 @@ public class CoefficientConverterTest {
     @Test
     public void coefficientTextToNumber() {
 
-        assertEquals (Integer.valueOf(223), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred twenty three")).get());
-        assertEquals (Integer.valueOf(220), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred twenty")).get());
-        assertEquals (Integer.valueOf(212), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred twelve")).get());
-        assertEquals (Integer.valueOf(202), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred two")).get());
-        assertEquals (Integer.valueOf(200), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred")).get());
-        assertEquals (Integer.valueOf(22), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("twenty two")).get());
-        assertEquals (Integer.valueOf(20), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("twenty")).get());
-        assertEquals (Integer.valueOf(2), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two")).get());
-        assertEquals (Integer.valueOf(0), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("")).get());
+        assertEquals (Integer.valueOf(223), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred twenty three")).orElse(null));
+        assertEquals (Integer.valueOf(220), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred twenty")).orElse(null));
+        assertEquals (Integer.valueOf(212), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred twelve")).orElse(null));
+        assertEquals (Integer.valueOf(202), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred two")).orElse(null));
+        assertEquals (Integer.valueOf(200), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two hundred")).orElse(null));
+        assertEquals (Integer.valueOf(22), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("twenty two")).orElse(null));
+        assertEquals (Integer.valueOf(20), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("twenty")).orElse(null));
+        assertEquals (Integer.valueOf(2), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("two")).orElse(null));
+        assertEquals (Integer.valueOf(0), java.util.Optional.ofNullable(testClass.CoefficientTextToNumber("")).orElse(null));
 }
 
 
